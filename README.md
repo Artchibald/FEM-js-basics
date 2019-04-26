@@ -188,9 +188,9 @@ console.log(friendsAtYourParty);
 Do loop does loop once only, very rare in code. Remember you can crash browser with infinite loop
 
 
-## different incremements
+## different increments
 
-that do exactly the same thing
+that do exactly the same thing. 
 
 ``` 
 
@@ -201,8 +201,6 @@ friendsAtYourParty++;
 ++friendsAtYourParty;
 console.log(friendsAtYourParty);
 ```
-
-
 ** means squared
 
 ## For loop
@@ -218,7 +216,7 @@ result 10
 
 ## Functions
 
-all before was procedural programming. Everything this way is crappy.
+all before was procedural programming. Everything this way is crappy. Generally variables are nouns (John jane) and functions are verbs "greet".
 
 ```
 function addTwo(number) {
@@ -240,11 +238,46 @@ console.log(greet("Brian", "Holt", "Lord", "Salutations"));
 console.log(greet("Jack", "Sparrow", "Captain", "A-hoy"));
 ```
 
+## Calling functions
+
+invoke a function. Parenthesis after it. someFunctionName(); log is a function being called.
+
+```
+const finalAnswer = addTwo();
+
+```
+
+##  Passing  a function
+
+pass a variable here or even a string 
+
+```
+const myHomeCity = "Salt Lake City";
+const myHomeState = "Utah";
+const myHomeCountry = "USA";
+
+function logOutYourHome(city, state, country) {
+  console.log(`You are from ${city}, ${state} ${country}.`);
+}
+
+logOutYourHome(myHomeCity, myHomeState, myHomeCountry);
+
+```
+
+## Scope
+
+We'll talk about scope multiple times but we'll start off here with it. Every time you call a function, it has its own scope. Other things can't peek into it; it just has its own little workspace for it work with. Once its done, any variable that you haven't explicitly held on to or returned at the end is discarded. For example:
 
 
+```
+function addFive(number) {
+  const someVariable = "you can't see me outside this function";
+  return number + 5;
+}
 
-
-
+addFive(10);
+console.log(someVariable);
+```
 
 
 
