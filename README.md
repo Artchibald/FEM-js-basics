@@ -425,39 +425,100 @@ undefined
 ```
 
 
+## Nested objects
+
+```
+const me = {
+  name: {
+    first: "Brian",
+    last: "Holt"
+  },
+  location: {
+    city: "Seattle",
+    state: "WA",
+    country: "USA"
+  }
+};
+
+console.log(me);
+```
+
+result
+
+```
+
+Object {
+  "location": Object {
+    "city": "Seattle",
+    "country": "USA",
+    "state": "WA",
+  },
+  "name": Object {
+    "first": "Brian",
+    "last": "Holt",
+  },
+}
+undefined
+```
+
+You can tree forever in json objects. They have to have UNIQUE KEYS.
+
+## Context 'THIS' REFERS TO WHAT EVER THIS OBJECT IS ON!!!!
+
+Simlar field to scope. Using the above object, wouldn't it be nice if we could use a function to nicely print where that person was from?
+
+```
+
+const me = {
+  name: {
+    first: "Brian",
+    last: "Holt"
+  },
+  location: {
+    streetNumber: 500,
+    street: "Fakestreet",
+    city: "Seattle",
+    state: "WA",
+    zipCode: 55555,
+    country: "USA"
+  },
+  getAddress() {
+    return `${this.name.first} ${this.name.last}
+${this.location.streetNumber} ${this.location.street}
+${this.location.city}, ${this.location.state} ${this.location.zipCode}
+${this.location.country}`;
+  }
+};
+
+console.log(me.getAddress());
+
+```
+
+result
+
+```
+"Brian Holt
+500 Fakestreet
+Seattle, WA 55555
+USA"
+undefined
+
+```
+
+this USUALLY applies to "nearest object". This refers to me const. What if I write this outside an object. If youre in a global scope it becomes entire "window"= global context
+
+try
+
+```
+this === window;
+
+```
+result is true
 
 
+*  You dont know javascript book
 
-
-
-
-
-
-
-    * [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
         ## Contributing
 
-Please read[CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-            ## Versioning
-
-We use[SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-                ## Authors
-
-                * ** Billie Thompson ** - * Initial work * -[PurpleBooth](https://github.com/PurpleBooth)
-
-                    See also the list of[contributors](https://github.com/your/project/contributors) who participated in this project.
-
-                        ## License
-
-This project is licensed under the MIT License - see the[LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-    * Hat tip to anyone whose code was used
-        * Inspiration
-        * etc
+Please read [FULLTUTO ](https://btholt.github.io/intro-to-web-dev-v2) for details on code.
