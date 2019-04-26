@@ -1,33 +1,44 @@
-# Project Title
+# JS Basics reminder
 
-One Paragraph of project description goes here
+Full list
 
-## Getting Started
+### CONST: single threaded, the order it happens
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-What things you need to install the software and how to install them
+JS is single threaded code. const means unchanging value. You cant change it later. let does that. You can omit ;. JS will put them there is execution.  
 
 ```
-Give examples
+const monthlyRent= 500;
+const yearlyRent = monthlyRent * 12;
+console.log(yearlyRent);
 ```
 
-### Installing
+### Numbers, strings boleans
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+Strings: series of characters either singe quotes, double quotes or back ticks.
 
 ```
-Give the example
+const nyName = `Archie`;
+console.log(myName);
+
+```
+
+result:
+
+```
+"Brian Holt"
 ```
 
 And repeat
 
 ```
-until finished
+const firstName = "Brian";
+const lastName = "Holt";
+
+const sentence = "Hello " + firstName + " " + lastName + "! How are you!?";
+const sentenceWithTemplate = `Hello ${firstName} ${lastName}! How are you!?`;
+
+console.log(sentence);
+console.log(sentenceWithTemplate);
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
