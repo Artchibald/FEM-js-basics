@@ -15,7 +15,7 @@ console.log(yearlyRent);
 ### let : mutable
 
 ```
-const friendsAtYourParty = 0;
+let friendsAtYourParty = 0;
 friendsAtYourParty = friendsAtYourParty + 1;
 friendsAtYourParty = friendsAtYourParty + 1;
 friendsAtYourParty = friendsAtYourParty + 1;
@@ -514,6 +514,192 @@ this === window;
 
 ```
 result is true
+
+## LOG mouse position
+```
+console.log(this === window);
+console.log(this.scrollY);
+console.log(window.scrollY);
+
+```
+
+result
+
+```
+true
+0
+0
+undefined
+```
+Try 
+```
+window.
+
+```
+
+to find a ton of things you can use. When it breaks its not obvious. Rule of thumb is where are functions called and in what context.
+
+## Arrays
+
+An ordered list of something. And they start at 0. Like a for loop. Its the way it is for devs.
+
+
+```
+const daysOfTheWeek = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday"
+];
+console.log(daysOfTheWeek);
+console.log(daysOfTheWeek[0]);
+console.log(daysOfTheWeek[1]);
+console.log(daysOfTheWeek[6]);
+
+```
+result
+
+```
+
+Array [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+]
+"Monday"
+"Tuesday"
+"Sunday"
+undefined
+
+```
+
+Count prime numbers in array
+
+```
+const primeNumbers = [1, 2, 3, 5, 7, 11, 13, 17];
+console.log(primeNumbers.length);
+console.log(primeNumbers.join(" | "));
+```
+
+result
+
+```
+8
+"1 | 2 | 3 | 5 | 7 | 11 | 13 | 17"
+undefined
+```
+
+## Push onto an array
+
+add an extra object. Use Push.
+
+```
+const courses = [
+  { teacher: "Kyle Simpson", course: "JS Function Lite" },
+  { teacher: "Sarah Drasner", course: "Intro to Vue" },
+  { teacher: "Brian Holt", course: "Complete Intro to React v3" },
+  { teacher: "Steve Kinney", course: "State Management" }
+];
+
+courses.push({ teacher: "Sean Larkinn", course: "Webpack" });
+
+console.log(courses);
+
+courses[2] = { teacher: "Brian Holt", course: "Complete Intro to React v4" };
+
+console.log(courses);
+
+```
+
+That was overwriting.
+
+## forEach: Use it constantly. It's functional programming.  Console log a whole array.
+
+We use a for loop.
+```
+const cities = [
+  "Seattle",
+  "San Francisco",
+  "Salt Lake City",
+  "Amsterdam",
+  "Hong Kong"
+];
+
+// method 1
+for (let i = 0; i < cities.length; i++) {
+  console.log(cities[i]);
+}
+
+// method 2, index indicates their position
+cities.forEach(function(city, index) {
+  console.log(index, city);
+});
+```
+
+### Method means function.
+
+for each is technically a method. A anonymous function.
+
+
+## The DOM (document object model)
+
+the way js enteracts with html and css. Its  on window. console.log is part of the document object model.
+
+et's first chat about what a browser is and how your code gets from you writing it to being on run in a browser.
+
+In a typical circumstance.
+
+1. You write code in your editor (like VSCode)
+2. You put your code on a server so that other people can get it
+3. Someone visits your website
+
+    1. (Lots of stuff happens here. For now we're not going to talk about it)
+    2. Their browser makes a request to your server for your index.html
+    3. Your server sends them a copy of the html
+    4. The browser reads the HTML, sees you have a my-script.js script tag on there
+    5. Browsers makes another request for my-script.js from your server
+    6. Your server sends them a copy of my-script.js
+    7. The browser reads the JavaScript code and begins executing the code
+    8. Same process happens with CSS too.
+
+## change a dom element
+
+```
+<style>
+  .red-square {
+    width: 100px;
+    height: 100px;
+    background-color: crimson;
+  }
+</style>
+
+<div class="red-square"></div>
+
+<script>
+  const redSquare = document.querySelector('.red-square');
+  redSquare.style.backgroundColor = 'limegreen';
+</script>
+
+```
+
+ result green square!
+
+
+
+
+
+
+
+
+
+
 
 
 *  You dont know javascript book
