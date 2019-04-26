@@ -279,6 +279,155 @@ addFive(10);
 console.log(someVariable);
 ```
 
+Not defined. You can't console log it outside its environment OUT OF SCOPE. Outside the scope you cant look at it, it's gone. Ask yourself WHERE WAS IT DECLARED? Console log in the let, the var, the const.
+
+## Exercise
+
+```
+const A = "A";
+let F;
+
+function doStuff(B) {
+  console.log(B);
+  const C = "C";
+  let H = "H";
+  if (1 + 1 === 2) {
+    const D = "D";
+    H = "something else";
+  }
+  console.log(D);
+  console.log(H);
+  F = "F";
+}
+
+let E = 0;
+while (E < 3) {
+  E++;
+  console.log(A);
+  const G = "G";
+}
+console.log(E);
+console.log(G);
+
+doStuff("B");
+console.log(B);
+console.log(C);
+console.log(F);
+
+```
+
+## Built ins
+
+pre built by JS. Example strings have functions.
+
+```
+const sentence = "ThIs HaS wEiRd CaSiNg On It";
+console.log(sentence.toLowerCase());
+```
+
+result: "this has weird casing on it". Check out the ndn. In console write "some string".    and options appear. Editor also does this. Try Math.round(5.1); equals 5.
+
+Try console.log(Math.floor(5.9999)); result is 5.
+console.log(Math.ceil(5.9999)); result is 6.
+
+## Objects and Arrays
+
+```
+const person = {
+  name: "Brian Holt",
+  city: "Seattle",
+  state: "WA",
+  favoriteFood: "🌮",
+  wantsTacosRightNow: true,
+  numberOfTacosWanted: 100
+};
+console.log(person);
+console.log(person.name);
+console.log(person["name"]); // same as the line above; definitely prefer using the other one
+```
+result:
+```
+Object {
+  "city": "Seattle",
+  "favoriteFood": "🌮",
+  "name": "Brian Holt",
+  "numberOfTacosWanted": 100,
+  "state": "WA",
+  "wantsTacosRightNow": true,
+}
+"Brian Holt"
+"Brian Holt"
+undefined
+```
+
+Above is inside of the object person I want this key.
+
+This is called an object. They're extremely useful in JavaScript; they're how you'll group together like-information so that they can be used together. They contain a bunch of keys and values. The keys are on the left side of the : and represent how you get that piece data of out of the object. name is one such key, and the way I get the name of the
+
+Used in conjunction with functions they're very powerful. Take this example:
+
+```
+const person1 = {
+  name: "Brian",
+  ageRange: "25-35"
+};
+const person2 = {
+  name: "Jack",
+  ageRange: "65-75"
+};
+
+function suggestMusic(person) {
+  if (person.ageRange === "25-35") {
+    console.log("We think you'll like Daft Punk your crazy millenial.");
+  } else if (person.ageRange === "65-75") {
+    console.log(
+      "You're obviously going to like Johnny Cash. He walks the line."
+    );
+  } else {
+    console.log(
+      "Uh, maybe try David Bowie? Everyone likes David Bowie, right?"
+    );
+  }
+}
+
+suggestMusic(person1);
+suggestMusic(person2);
+```
+
+result
+
+```
+
+"We think you\'ll like Daft Punk your crazy millenial."
+"You\'re obviously going to like Johnny Cash. He walks the line."
+undefined
+
+```
+
+### Objects can even have their functions! Let's see that.
+
+```
+const dog = {
+  name: "dog",
+  speak() {
+    console.log("woof woof");
+  }
+};
+
+dog.speak();
+
+```
+result
+
+```
+"woof woof"
+undefined
+```
+
+
+
+
+
 
 
 
