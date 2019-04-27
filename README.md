@@ -691,16 +691,198 @@ In a typical circumstance.
 
  result green square!
 
+ANOTHER:
+
+```
+
+<ul>
+  <li class="js-target">Unchanged</li>
+  <li class="js-target">Unchanged</li>
+  <li>Won't Change</li>
+  <li class="js-target">Unchanged</li>
+  <li>Won't Change</li>
+  <li class="js-target">Unchanged</li>
+</ul>
+<script>
+  const elementsToChange = document.querySelectorAll('.js-target');
+  for (let i = 0; i < elementsToChange.length; i++) {
+    const currentElement = elementsToChange[i];
+    currentElement.innerText = "Modified by JavaScript!";
+  }
+</script>
+
+```
+
+RESULT:
+Modified by JavaScript!
+Modified by JavaScript!
+Won't Change
+Modified by JavaScript!
+Won't Change
+Modified by JavaScript!
 
 
+## Event listeners
+
+```
+<button class="event-button">Click me!</button>
+<script>
+  const button = document.querySelector('.event-button');
+  button.addEventListener('click', function () {
+    alert("Hey there!");
+  });
+  </script>
+
+```
+With input, amazing example.
+
+```
+<input placeholder="type into me!" class="input-to-copy" />
+<p class="p-to-copy-to">Nothing has happened yet.</p>
+<script>
+  const input = document.querySelector('.input-to-copy');
+  const paragraph = document.querySelector('.p-to-copy-to');
+
+  input.addEventListener("keyup", function() {
+    paragraph.innerText  = input.value;
+  });
+</script>
+
+```
+
+### Change. 
+
+```
+<style>
+  .color-box {
+    background-color: limegreen;
+    width: 100px;
+    height: 100px;
+  }
+</style>
+<div class="color-box"></div>
+<input class="color-input" placeholder="Type a color here!" />
+<script>
+  const input = document.querySelector('.color-input');
+  const paragraph = document.querySelector('.color-box');
+
+  input.addEventListener("change", function() {
+    paragraph.style.backgroundColor  = input.value;
+  });
+</script>
+```
+
+## Event delegation
+
+One event listener for all 5.
+
+```
+<div class="button-container">
+  <button>1</button>
+  <button>2</button>
+  <button>3</button>
+  <button>4</button>
+  <button>5</button>
+</div>
+<script>
+  document.querySelector('.button-container').addEventListener('click', function(event) {
+    alert(`You clicked on button ${event.target.innerText}`);
+  });
+</script>
+```
+
+### prevent default
+
+```
+event.preventDefault();
+event.stopPropagation();
+```
+
+## AJAX
+
+Asynchronous javascript and xml(we dont use xml anymore, we use json).
+
+Ajax means request info from api(appli programming interf) = somewhere to request data
+
+email refresh button is ajax
+
+https://github.com/toddmotto/public-apis
 
 
+### Fetch
+
+```
+    const DOG_URL = "https://dog.ceo/api/breeds/image/random";
+
+const promise = fetch(DOG_URL);
+
+promise
+  .then(function(response) {
+    const processingPromise = response.json();
+    return processingPromise;
+  })
+  .then(function(processedResponse) {
+    console.log(processedResponse);
+        const img = document.createElement("img");
+    img.src = processedResponse.message;
+    img.alt = "Cute doggo";
+    doggos.appendChild(img);
+  });
+
+console.log("this will log first");
+
+```
+
+fetch gives you a promise. fetch is asynchronous. It fetches JSON. Javascript Object Notation
+
+Return it on page:
 
 
+```
+
+const DOG_URL = "https://dog.ceo/api/breeds/image/random";
+
+const doggos = document.querySelector(".doggos");
+
+function addNewDoggo() {
+  const promise = fetch(DOG_URL);
+  promise
+    .then(function(response) {
+      const processingPromise = response.json();
+      return processingPromise;
+    })
+    .then(function(processedResponse) {
+      const img = document.createElement("img");
+      img.src = processedResponse.message;
+      img.alt = "Cute doggo";
+      doggos.appendChild(img);
+    });
+}
+
+document.querySelector(".add-doggo").addEventListener("click", addNewDoggo);
+
+```
 
 
+## NODE.js
 
+Start a localserver 
 
+```
+const http = require("http");
+
+const server = http.createServer(function(req, res) {
+  console.log(`user visited ${req.url}`);
+  res.end("hello!");
+});
+
+console.log("listening on http://localhost:3000");
+server.listen(3000);
+
+```
+save as server.js
+
+Go to your terminal and run node server.js. You should see the "listening on http://localhost:3000" message logged out. Navigate your browser to http://localhost:3000. You should see the text hello! responded back to you. 
 
 *  You dont know javascript book
 
